@@ -2743,7 +2743,7 @@ ol {
 }
 
 .footer__copyright__payment {
-	float: right;
+	text-align: center;
 }
 
 /*---------------------
@@ -3200,10 +3200,6 @@ ol {
 	}
 	.footer__copyright {
 		text-align: center;
-	}
-	.footer__copyright__text {
-		float: none;
-		margin-bottom: 25px;
 	}
 	.footer__copyright__payment {
 		float: none;
