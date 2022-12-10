@@ -6,7 +6,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon app.js"
-
   },
   "repository": {
     "type": "git",
@@ -20,8 +19,11 @@
   },
   "homepage": "https://github.com/kaspar21/Kasoga_shop#readme",
   "dependencies": {
+    "cookie-parser": "^1.4.6",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "express-handlebars": "^6.0.6",
+    "express-session": "^1.17.3",
     "hbs": "^4.2.0",
     "mysql": "^2.18.1",
     "nodemon": "^2.0.20"
