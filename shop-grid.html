@@ -22,6 +22,42 @@
     <link rel="stylesheet" href="owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="style.css" type="text/css">
+    
+    
+    <script type="module">
+        function insert_cart(idproduct, units){
+            // Importation des tous les composants//
+            const mysql = require("mysql");
+            const dotenv = require('dotenv');
+            dotenv.config({ path:'./.env'})
+        
+            const db = mysql.createConnection({
+            host: process.env.DATABASE_Host,
+            user: process.env.DATABASE_USER,
+            password: process.env.DATABASE_PASSWORD,
+            database: process.env.DATABASE,
+            port:'3306'
+        });
+        
+        //Montre dans le terminal que la base de données est bien connectée
+        db.connect( (error) =>{
+            if(error){
+                console.log(error)
+            }else{
+                console.log("The database is well connected !")
+            }})
+
+            //javascript pour le register 
+            var sql = `INSERT INTO shopping_cart (idproduct, units) VALUES ('${idproduct}', '${units}')`;
+            db.query(sql, function (err, result) {
+                if (err){
+                    dbsole.log(err);
+                }
+            }
+            );
+};
+</script>
+
 </head>
 
 <body>
@@ -470,6 +506,7 @@
                             <div class="col-lg-4 col-md-4">
                                 <div class="filter__found">
                                     <h6><span>16</span> Products found</h6>
+                                    <button type="button" onclick="insert_cart(3,2)">Click </button>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-3">
@@ -716,7 +753,8 @@
     <script src="../js/mixitup.min.js"></script>
     <script src="../js/owl.carousel.min.js"></script>
     <script src="../js/main.js"></script>
-
+    
+    
 
 
 </body>
