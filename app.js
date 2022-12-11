@@ -60,6 +60,18 @@ app.get("/checkout",(req,res) => {
     res.sendFile(path.join(__dirname, '/checkout.html'));
 });
 
+
+//-----------------------------------------------------------------------------//
+//javascript pour le register 
+function insert_cart(idproduct, units){
+    var sql = `INSERT INTO shopping_cart (idproduct, units) VALUES ('${idproduct}', '${units}')`;
+    db.query(sql, function (err, result) {
+        if (err){
+            dbsole.log(err);
+        }});
+    };
+
+
 //listening to the port
 port = 8000;
 app.listen(port,() =>{
