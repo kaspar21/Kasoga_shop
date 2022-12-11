@@ -30,14 +30,7 @@ const db = mysql.createConnection({
     port:'3306'
 });
 
-// To put files such as CSS and JavaScript to use
-const publicDirectory = path.join(__dirname, './css');
-//to get all the CSS files that have been created
-app.use(express.static(publicDirectory));
-console.log(__dirname);
-app.use('/static', express.static('img'));
-// connecting to hbs for HTML
-app.set('view engine', 'hbs');
+
 
 //Montre dans le terminal que la base de données est bien connectée
 db.connect( (error) =>{
@@ -47,28 +40,20 @@ db.connect( (error) =>{
         console.log("The database is well connected !")
     }})
 
+app.use('/img', express.static('img'));
+app.use('/js', express.static('js'));
+app.use(express.static(path.join(__dirname, './css')))
 
 // Démarre les pages du serveur
 app.get("/",(req,res) => {
-    res.render("home");
+    res.sendFile(path.join(__dirname, '/home.html'));
 });
-app.get("/shop-grid",(req,res) => {
-    res.render("shop-grid");
-});
-app.get("/contact",(req,res) => {
-    res.render("contact");
-});
-app.get("/checkout",(req,res) => {
-    res.render("checkout");
-});
-app.get("/like",(req,res) => {
-    res.render("like");
-});
-app.get("/shoping-cart",(req,res) => {
-    res.render("shoping-cart");
+app.get("/",(req,res) => {
+    res.sendFile(path.join(__dirname, '/home.html'));
 });
 
 //listening to the port
-app.listen(3000,() =>{
-    console.log("The server started on port 3000 !");
+port = 8000;
+app.listen(port,() =>{
+    console.log('Server started at http://localhost:' + port);
 })
