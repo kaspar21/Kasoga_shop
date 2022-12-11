@@ -31,7 +31,6 @@ const db = mysql.createConnection({
 });
 
 
-
 //Montre dans le terminal que la base de données est bien connectée
 db.connect( (error) =>{
     if(error){
@@ -48,8 +47,17 @@ app.use(express.static(path.join(__dirname, './css')))
 app.get("/",(req,res) => {
     res.sendFile(path.join(__dirname, '/home.html'));
 });
-app.get("/",(req,res) => {
-    res.sendFile(path.join(__dirname, '/home.html'));
+app.get("/shop-grid",(req,res) => {
+    res.sendFile(path.join(__dirname, '/shop-grid.html'));
+});
+app.get("/shoping-cart",(req,res) => {
+    res.sendFile(path.join(__dirname, '/shoping-cart.html'));
+});
+app.get("/contact",(req,res) => {
+    res.sendFile(path.join(__dirname, '/contact.html'));
+});
+app.get("/checkout",(req,res) => {
+    res.sendFile(path.join(__dirname, '/checkout.html'));
 });
 
 //listening to the port
