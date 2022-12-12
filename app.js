@@ -72,8 +72,21 @@ function insert_cart(idproduct, units){
     };
 
 
+function sommedb(){
+    var sql = 'SELECT units FROM kasoga_shop.shopping_cart';
+    db.query(sql, function (err, result) {
+        if (err){
+            dbsole.log(err);
+        }});
+        
+    };
+
+
+
+
+
 //listening to the port
-port = 8000;
+port = 1234;
 app.listen(port,() =>{
     console.log('Server started at http://localhost:' + port);
 })
