@@ -26,42 +26,9 @@
     
     
     <script type="module">
-        function insert_cart(idproduct, units){
-            // Importation des tous les composants//
-            const mysql = require("mysql");
-            const dotenv = require('dotenv');
-            dotenv.config({ path:'./.env'})
-        
-            const db = mysql.createConnection({
-            host: process.env.DATABASE_Host,
-            user: process.env.DATABASE_USER,
-            password: process.env.DATABASE_PASSWORD,
-            database: process.env.DATABASE,
-            port:'3306'
-        });
-        
-        //Montre dans le terminal que la base de données est bien connectée
-        db.connect( (error) =>{
-            if(error){
-                console.log(error)
-            }else{
-                console.log("The database is well connected !")
-            }})
 
-            //javascript pour le register 
-            var sql = `INSERT INTO shopping_cart (idproduct, units) VALUES ('${idproduct}', '${units}')`;
-            db.query(sql, function (err, result) {
-                if (err){
-                    dbsole.log(err);
-                }
-            }
-            );
-};
-
-//- Using an anonymous function:
+document.getElementById("clickme").onclick = function () { alert('You have successfully added the item to the cart!'); };
 document.getElementById("clickMe").onclick = function () { alert('You have successfully added the item to the cart!'); };
-document.getElementById("clickMe").onclick = function () { alert('You have successfully added the item to the cart!'); };
-
 </script>
 
 </head>
@@ -400,8 +367,7 @@ document.getElementById("clickMe").onclick = function () { alert('You have succe
                                             data-setbg="img/product/discount/pd-1.jpg">
                                             <div class="product__discount__percent">-20%</div>
                                             <ul class="product__item__pic__hover">
-                                                
-                                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                                <li><a><i id="clickMe" type="button" value="clickme" onclick="insert_cart(3,2);" class="fa fa-shopping-cart"></i></a></li>
                                             </ul>
                                         </div>
                                         <div class="product__discount__item__text">
@@ -417,8 +383,7 @@ document.getElementById("clickMe").onclick = function () { alert('You have succe
                                             data-setbg="img/product/discount/pd-2.jpg">
                                             <div class="product__discount__percent">-20%</div>
                                             <ul class="product__item__pic__hover">
-                                                
-                                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                                <li><a><i id="clickMe" type="button" value="clickme" onclick="insert_cart(3,2);" class="fa fa-shopping-cart"></i></a></li>
                                             </ul>
                                         </div>
                                         <div class="product__discount__item__text">
@@ -434,8 +399,7 @@ document.getElementById("clickMe").onclick = function () { alert('You have succe
                                             data-setbg="img/product/discount/pd-3.jpg">
                                             <div class="product__discount__percent">-20%</div>
                                             <ul class="product__item__pic__hover">
-                                                
-                                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                                <li><a><i id="clickMe" type="button" value="clickme" onclick="insert_cart(3,2);" class="fa fa-shopping-cart"></i></a></li>
                                             </ul>
                                         </div>
                                         <div class="product__discount__item__text">
@@ -451,8 +415,7 @@ document.getElementById("clickMe").onclick = function () { alert('You have succe
                                             data-setbg="img/product/discount/pd-4.jpg">
                                             <div class="product__discount__percent">-20%</div>
                                             <ul class="product__item__pic__hover">
-                                                
-                                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                                <li><a><i id="clickMe" type="button" value="clickme" onclick="insert_cart(3,2);" class="fa fa-shopping-cart"></i></a></li>
                                             </ul>
                                         </div>
                                         <div class="product__discount__item__text">
@@ -468,8 +431,7 @@ document.getElementById("clickMe").onclick = function () { alert('You have succe
                                             data-setbg="img/product/discount/pd-5.jpg">
                                             <div class="product__discount__percent">-20%</div>
                                             <ul class="product__item__pic__hover">
-                                                
-                                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                                <li><a><i id="clickMe" type="button" value="clickme" onclick="insert_cart(3,2);" class="fa fa-shopping-cart"></i></a></li>
                                             </ul>
                                         </div>
                                         <div class="product__discount__item__text">
@@ -485,8 +447,7 @@ document.getElementById("clickMe").onclick = function () { alert('You have succe
                                             data-setbg="img/product/discount/pd-6.jpg">
                                             <div class="product__discount__percent">-20%</div>
                                             <ul class="product__item__pic__hover">
-                                                
-                                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                                <li><a><i id="clickMe" type="button" value="clickme" onclick="" class="fa fa-shopping-cart"></i></a></li>
                                             </ul>
                                         </div>
                                         <div class="product__discount__item__text">
@@ -512,8 +473,8 @@ document.getElementById("clickMe").onclick = function () { alert('You have succe
                             </div>
                             <div class="col-lg-4 col-md-3">
                                 <div class="filter__option">
-                                    <span class="icon_grid-2x2"></span>
-                                    <span class="icon_ul"></span>
+                                    <span></span>
+                                    <span></span>
                                 </div>
                             </div>
                         </div>
@@ -523,7 +484,7 @@ document.getElementById("clickMe").onclick = function () { alert('You have succe
                             <div class="featured__item">
                                 <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-1.jpg">
                                     <ul class="featured__item__pic__hover">
-                                        <li><a><i id="clickMe" type="button" value="clickme" onclick="insert_cart(3,2);" class="fa fa-shopping-cart"></i></a></li>
+                                        <li><a><i id="clickMe" type="button" value="clickme" onclick="" class="fa fa-shopping-cart"></i></a></li>
                                     </ul>
                                 </div>
                                 <div class="featured__item__text">
@@ -537,8 +498,8 @@ document.getElementById("clickMe").onclick = function () { alert('You have succe
                             <div class="featured__item">
                                 <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-2.jpg">
                                     <ul class="featured__item__pic__hover">
-                                        
-                                        <li><a><i id="clickMe" type="button" value="clickme" onclick="insert_cart(3,2);" class="fa fa-shopping-cart"></i></a></li>                                    </ul>
+                                        <li><a><i id="clickMe" type="button" value="clickme" onclick="" class="fa fa-shopping-cart"></i></a></li>
+                                    </ul>
                                 </div>
                                 <div class="featured__item__text">
                                     <h6><a>Bananas</a></h6>
@@ -589,8 +550,8 @@ document.getElementById("clickMe").onclick = function () { alert('You have succe
                             <div class="featured__item">
                                 <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-6.jpg">
                                     <ul class="featured__item__pic__hover">
-                                        
-                                        <li><a><i id="clickMe" type="button" value="clickme" onclick="insert_cart(3,2);" class="fa fa-shopping-cart"></i></a></li>                                    </ul>
+                                        <li><a><i id="clickMe" type="button" value="clickme" onclick="insert_cart(3,2);" class="fa fa-shopping-cart"></i></a></li>
+                                    </ul>
                                 </div>
                                 <div class="featured__item__text">
                                     <h6><a>Hamburger</a></h6>
