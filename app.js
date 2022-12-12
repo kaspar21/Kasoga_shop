@@ -62,7 +62,7 @@ app.get("/checkout",(req,res) => {
 
 
 //-----------------------------------------------------------------------------//
-//javascript pour le register 
+//javascript pour insérer dans le panier
 function insert_cart(idproduct, units){
     var sql = `INSERT INTO shopping_cart (idproduct, units) VALUES ('${idproduct}', '${units}')`;
     db.query(sql, function (err, result) {
@@ -72,6 +72,49 @@ function insert_cart(idproduct, units){
     };
 
 
+//-----------------------------------------------------------------------------//
+//javascript pour le register 
+app.post('/register', encodeUrl, (req, res) => {
+    var firstName = req.body.firstName;
+    var lastName = req.body.lastName;
+    var password = req.body.password;
+    var mail = req.body.mail;
+
+    db.connect(function(err) {
+        // checking user already registered or no
+        db.query(`SELECT * FROM db_client WHERE mail = '${mail}' AND password  = '${password}'`, function(err, result){
+            if(err){
+                console.log(err);
+            };
+            if(Object.keys(result).length > 0){
+                //Affiche la page login si le mail est déjà dans la database
+                res.render("login");
+            }else{
+            //creating user page in userPage function
+            function userPage(){
+                // We create a session for the dashboard (user page) page and save the user data to this session:
+                req.session.user = {
+                    //db       nom variable
+                    firstName: firstName,
+                    lastName: lastName,
+                    password: password,
+                    mail: mail 
+                };
+                res.render("login");
+            }
+                // inserting new user data
+                var sql = `INSERT INTO db_client (firstName, lastName, password, mail) VALUES ('${firstName}', '${lastName}', '${password}', '${mail}')`;
+                db.query(sql, function (err, result) {
+                    if (err){
+                        dbsole.log(err);
+                    }else{
+                        // using userPage function for creating user page
+                        userPage();
+                    };});}});});});
+
+
+
+//-----------------------------------------------------------------------------//
 function sommedb(){
     var sql = 'SELECT units FROM kasoga_shop.shopping_cart';
     db.query(sql, function (err, result) {
