@@ -60,21 +60,7 @@
 
 //- Using an anonymous function:
 document.getElementById("clickMe").onclick = function () { alert('You have successfully added the item to the cart!'); };
-document.getElementById("clickMe").onclick = insert_cart(3,2);
-
-var el = document.getElementById("clickMe");
-if (el.addEventListener)
-    el.addEventListener("click", insert_cart, false);
-else if (el.attachEvent)
-    el.attachEvent('onclick', insert_cart);
-
-
-CapacityWindow.document.write(s);
-
-
-CapacityWindow.document.open("/shop-grid");
-CapacityWindow.document.write(s);
-CapacityWindow.document.close();
+document.getElementById("clickMe").onclick = function () { alert('You have successfully added the item to the cart!'); };
 
 </script>
 
@@ -537,12 +523,11 @@ CapacityWindow.document.close();
                             <div class="featured__item">
                                 <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-1.jpg">
                                     <ul class="featured__item__pic__hover">
-                                        
-                                        <li><a href='#'><i id="clickMe" type="button" value="clickme" onclick="insert_cart(3,2);" class="fa fa-shopping-cart"></i></a></li>
+                                        <li><a><i id="clickMe" type="button" value="clickme" onclick="insert_cart(3,2);" class="fa fa-shopping-cart"></i></a></li>
                                     </ul>
                                 </div>
                                 <div class="featured__item__text">
-                                    <h6><a href="#">Beef</a></h6>
+                                    <h6><a>Beef</a></h6>
                                     <h5>R200</h5>
                                 </div>
                             </div>
@@ -553,11 +538,10 @@ CapacityWindow.document.close();
                                 <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-2.jpg">
                                     <ul class="featured__item__pic__hover">
                                         
-                                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                    </ul>
+                                        <li><a><i id="clickMe" type="button" value="clickme" onclick="insert_cart(3,2);" class="fa fa-shopping-cart"></i></a></li>                                    </ul>
                                 </div>
                                 <div class="featured__item__text">
-                                    <h6><a href="#">Bananas</a></h6>
+                                    <h6><a>Bananas</a></h6>
                                     <h5>R10</h5>
                                 </div>
                             </div>
@@ -567,11 +551,10 @@ CapacityWindow.document.close();
                                 <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-3.jpg">
                                     <ul class="featured__item__pic__hover">
                                         
-                                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                    </ul>
+                                        <li><a><i id="clickMe" type="button" value="clickme" onclick="insert_cart(3,2);" class="fa fa-shopping-cart"></i></a></li>                                    </ul>
                                 </div>
                                 <div class="featured__item__text">
-                                    <h6><a href="#">Passion fruit</a></h6>
+                                    <h6><a>Passion fruit</a></h6>
                                     <h5>R25</h5>
                                 </div>
                             </div>
@@ -581,11 +564,10 @@ CapacityWindow.document.close();
                                 <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-4.jpg">
                                     <ul class="featured__item__pic__hover">
                                         
-                                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                    </ul>
+                                        <li><a><i id="clickMe" type="button" value="clickme" onclick="insert_cart(3,2);" class="fa fa-shopping-cart"></i></a></li>                                    </ul>
                                 </div>
                                 <div class="featured__item__text">
-                                    <h6><a href="#">Watermelon</a></h6>
+                                    <h6><a>Watermelon</a></h6>
                                     <h5>R100</h5>
                                 </div>
                             </div>
@@ -595,11 +577,10 @@ CapacityWindow.document.close();
                                 <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-5.jpg">
                                     <ul class="featured__item__pic__hover">
                                         
-                                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                    </ul>
+                                        <li><a><i id="clickMe" type="button" value="clickme" onclick="insert_cart(3,2);" class="fa fa-shopping-cart"></i></a></li>                                    </ul>
                                 </div>
                                 <div class="featured__item__text">
-                                    <h6><a href="#">Raisins</a></h6>
+                                    <h6><a>Raisins</a></h6>
                                     <h5>R50</h5>
                                 </div>
                             </div>
@@ -609,11 +590,10 @@ CapacityWindow.document.close();
                                 <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-6.jpg">
                                     <ul class="featured__item__pic__hover">
                                         
-                                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                    </ul>
+                                        <li><a><i id="clickMe" type="button" value="clickme" onclick="insert_cart(3,2);" class="fa fa-shopping-cart"></i></a></li>                                    </ul>
                                 </div>
                                 <div class="featured__item__text">
-                                    <h6><a href="#">Hamburger</a></h6>
+                                    <h6><a>Hamburger</a></h6>
                                     <h5>R95</h5>
                                 </div>
                             </div>
@@ -623,11 +603,10 @@ CapacityWindow.document.close();
                                 <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-7.jpg">
                                     <ul class="featured__item__pic__hover">
                                         
-                                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                    </ul>
+                                        <li><a><i id="clickMe" type="button" value="clickme" onclick="insert_cart(3,2);" class="fa fa-shopping-cart"></i></a></li>                                    </ul>
                                 </div>
                                 <div class="featured__item__text">
-                                    <h6><a href="#">Mango</a></h6>
+                                    <h6><a>Mango</a></h6>
                                     <h5>R120</h5>
                                 </div>
                             </div>
@@ -637,11 +616,10 @@ CapacityWindow.document.close();
                                 <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-8.jpg">
                                     <ul class="featured__item__pic__hover">
                                         
-                                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                    </ul>
+                                        <li><a><i id="clickMe" type="button" value="clickme" onclick="insert_cart(3,2);" class="fa fa-shopping-cart"></i></a></li>                                    </ul>
                                 </div>
                                 <div class="featured__item__text">
-                                    <h6><a href="#">Apple</a></h6>
+                                    <h6><a>Apple</a></h6>
                                     <h5>R90</h5>
                                     </div>
                             </div>
@@ -651,11 +629,10 @@ CapacityWindow.document.close();
                                 <div class="product__item__pic set-bg" data-setbg="img/product/product-9.jpg">
                                     <ul class="product__item__pic__hover">
                                         
-                                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                    </ul>
+                                        <li><a><i id="clickMe" type="button" value="clickme" onclick="insert_cart(3,2);" class="fa fa-shopping-cart"></i></a></li>                                    </ul>
                                 </div>
                                 <div class="product__item__text">
-                                    <h6><a href="#">Bag of olives</a></h6>
+                                    <h6><a>Bag of olives</a></h6>
                                     <h5>R80</h5>
                                 </div>
                             </div>
@@ -665,11 +642,10 @@ CapacityWindow.document.close();
                                 <div class="product__item__pic set-bg" data-setbg="img/product/product-10.jpg">
                                     <ul class="product__item__pic__hover">
                                         
-                                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                    </ul>
+                                        <li><a><i id="clickMe" type="button" value="clickme" onclick="insert_cart(3,2);" class="fa fa-shopping-cart"></i></a></li>                                    </ul>
                                 </div>
                                 <div class="product__item__text">
-                                    <h6><a href="#">Chicken thigh</a></h6>
+                                    <h6><a>Chicken thigh</a></h6>
                                     <h5>R80</h5>
                                 </div>
                             </div>
@@ -678,12 +654,10 @@ CapacityWindow.document.close();
                             <div class="product__item">
                                 <div class="product__item__pic set-bg" data-setbg="img/product/product-11.jpg">
                                     <ul class="product__item__pic__hover">
-                                        
-                                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                    </ul>
+                                        <li><a><i id="clickMe" type="button" value="clickme" onclick="insert_cart(3,2);" class="fa fa-shopping-cart"></i></a></li>                                    </ul>
                                 </div>
                                 <div class="product__item__text">
-                                    <h6><a href="#">Orange juice</a></h6>
+                                    <h6><a>Orange juice</a></h6>
                                     <h5>R34</h5>
                                 </div>
                             </div>
