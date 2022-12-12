@@ -59,7 +59,18 @@ app.get("/contact",(req,res) => {
 app.get("/checkout",(req,res) => {
     res.sendFile(path.join(__dirname, '/checkout.html'));
 });
+app.get("/fin",(req,res) => {
+    res.sendFile(path.join(__dirname, '/fin.html'));
+});
+app.get("/ticket",(req,res) => {
+    res.sendFile(path.join(__dirname, '/ticket.html'));
+});
 
+//listening to the port
+port = 1234;
+app.listen(port,() =>{
+    console.log('Server started at http://localhost:' + port);
+})
 
 //-----------------------------------------------------------------------------//
 //javascript pour insérer dans le panier
@@ -70,48 +81,28 @@ function insert_cart(idproduct, units){
             dbsole.log(err);
         }});
     };
-
-
 //-----------------------------------------------------------------------------//
-//javascript pour le register 
-app.post('/register', encodeUrl, (req, res) => {
-    var firstName = req.body.firstName;
-    var lastName = req.body.lastName;
-    var password = req.body.password;
-    var mail = req.body.mail;
 
-    db.connect(function(err) {
-        // checking user already registered or no
-        db.query(`SELECT * FROM db_client WHERE mail = '${mail}' AND password  = '${password}'`, function(err, result){
-            if(err){
-                console.log(err);
-            };
-            if(Object.keys(result).length > 0){
-                //Affiche la page login si le mail est déjà dans la database
-                res.render("login");
-            }else{
-            //creating user page in userPage function
-            function userPage(){
-                // We create a session for the dashboard (user page) page and save the user data to this session:
-                req.session.user = {
-                    //db       nom variable
-                    firstName: firstName,
-                    lastName: lastName,
-                    password: password,
-                    mail: mail 
-                };
-                res.render("login");
-            }
-                // inserting new user data
-                var sql = `INSERT INTO db_client (firstName, lastName, password, mail) VALUES ('${firstName}', '${lastName}', '${password}', '${mail}')`;
-                db.query(sql, function (err, result) {
-                    if (err){
-                        dbsole.log(err);
-                    }else{
-                        // using userPage function for creating user page
-                        userPage();
-                    };});}});});});
-
+    app.post('/checkout', encodeUrl, (req, res) => {
+        var firstName = req.body.firstName;
+        var lastName = req.body.lastName;
+        var country = req.body.country;
+        var address = req.body.address;
+        var city = req.body.city;
+        var zipcode = req.body.zipcode;
+        var cellphone = req.body.cellphone;
+        var email = req.body.email;
+        
+    
+        db.connect(function(err) {
+            // inserting new user data
+            var sql = `INSERT INTO db_client (firstName, lastName, country, address, city, zipcode, cellphone, email) VALUES ('${firstName}', '${lastName}', '${country}','${address}','${city}','${zipcode}','${cellphone}', '${email}')`;
+            db.query(sql, function (err, result) {
+                if (err){
+                    console.log(err);
+                }else{
+                    res.sendFile(path.join(__dirname, '/fin.html'));
+                };});});});
 
 
 //-----------------------------------------------------------------------------//
@@ -121,15 +112,6 @@ function sommedb(){
         if (err){
             dbsole.log(err);
         }});
-        
     };
 
 
-
-
-
-//listening to the port
-port = 1234;
-app.listen(port,() =>{
-    console.log('Server started at http://localhost:' + port);
-})
